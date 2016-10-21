@@ -1,10 +1,7 @@
 <%= form_tag("/check", method: "post") do %>
     <h2>Check a Porker Hand</h2>
-    <input name="hands" type="text" value="<%= params[:hand] %>">
+    <input name="hand" type="text" value="<%= params[:hand] %>">
     <input type="submit" value="Check!">
-    <h2><%= @suits %></h2>
-    <h2><%= @numbers %></h2>
-    <h2><%= @suits_pairs %></h2>
-    <h2><%= @numbers_pairs %></h2>
-    <!--<h2><%= @hand %></h2>-->
+    <h3><%= "入力されたカード：#{params[:hand].split(" ")}" %></h3>
+    <h2><%= "手役：#{@hand}" %></h2>
 <% end %>
