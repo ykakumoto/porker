@@ -42,7 +42,7 @@ class CheckController < ApplicationController
 
   end
 
-  
+
   def straight?(numbers)
     # 入力された配列がストレートになっているかを確認
     if (numbers.max.to_i - numbers.min.to_i == 4 && pairs_count(numbers) == 0) || (numbers.sort.map(&:to_i) == [1, 10, 11, 12, 13])
@@ -61,9 +61,10 @@ class CheckController < ApplicationController
 
     @suits_pairs   = pairs_count(@suits)
     @numbers_pairs = pairs_count(@numbers)
+    @straight      = straight?(@numbers)
 
 
-    if (@suits_pairs == 10 && straight?(@numbers))
+    if (@suits_pairs == 10 && @straihgt)
       @hand = "ストレートフラッシュ"
     elsif (@numbers_pairs == 6)
       @hand = "フォー・オブ・ア・カインド"
@@ -71,7 +72,7 @@ class CheckController < ApplicationController
       @hand = "フルハウス"
     elsif (@suits_pairs == 10)
       @hand == "フラッシュ"
-    elsif (straight?(@numbers))
+    elsif (@straight)
       @hand = "ストレート"
     elsif (@numbers_pairs == 3)
       @hand = "スリー・オブ・ア・カインド"

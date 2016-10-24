@@ -45,3 +45,6 @@ group :development do
   gem 'spring'
 end
 
+gem 'grape', '0.17.0'
+gem 'grape-jbuilder'
+

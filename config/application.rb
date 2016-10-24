@@ -22,5 +22,18 @@ module Porker
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+
+    # Grapeの設定　app/api配下の.rbファイルを読み込み対象にする
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
+    # Grape+JBuilderを使うための設定
+    config.middleware.use(Rack::Config) do |env|
+      env['api.tilt.root'] = Rails.root.join 'app', 'views', 'apis', 'api'
+    end
+
+
   end
 end
+
