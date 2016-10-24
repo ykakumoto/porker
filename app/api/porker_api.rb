@@ -27,7 +27,7 @@ module PorkerApi
         @suits         = make_array_chara(@card.split(" "))
         @numbers       = make_array_num(@card.split(" "))
 
-        # スートのペア数・数字のペア数・ストレートかどうかを作成
+        # スートのペア数・数字のペア数・ストレート判定を作成
         @suits_pairs   = pairs_count(@suits)
         @numbers_pairs = pairs_count(@numbers)
         @straight      = straight?(@numbers)
@@ -41,7 +41,7 @@ module PorkerApi
         @scores << @score
       end
 
-      # 最も強い手役を判定し、入力カード・手役・最強役かの配列を出力
+      # 最も強い手役を判定し、入力カード・手役・最強役判定の配列を出力
       @hands.each do |h|
         @results << { card: h[:card], hand: h[:hand], best: h[:score] == @scores.max }
       end

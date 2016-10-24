@@ -11,7 +11,7 @@ class PorkerController < ApplicationController
     @suits         = make_array_chara(params[:hand].split(" "))
     @numbers       = make_array_num(params[:hand].split(" "))
 
-    # スートのペア数・数字のペア数・ストレートかどうかを作成
+    # スートのペア数・数字のペア数・ストレート判定を作成
     @suits_pairs   = pairs_count(@suits)
     @numbers_pairs = pairs_count(@numbers)
     @straight      = straight?(@numbers)

@@ -45,7 +45,7 @@ module Common
 
 
   def straight?(numbers)
-    # 入力された配列がストレートになっているかを出力
+    # 入力された配列のストレート判定を出力
     if (numbers.max.to_i - numbers.min.to_i == 4 && pairs_count(numbers) == 0) || (numbers.sort.map(&:to_i) == [1, 10, 11, 12, 13])
       return true
     else
@@ -56,7 +56,7 @@ module Common
 
 
   def handscheck(suits_pairs, numbers_pairs, straight)
-    # スートのペア数、数字のペア数、ストレートになっているか、の３つを入力し、ポーカーの役と強さを出力
+    # スートのペア数、数字のペア数、ストレート判定、の３つを入力し、ポーカーの役と強さを出力
     if (suits_pairs == 10 && straight)
       hand  = "ストレートフラッシュ"
       score = 8
