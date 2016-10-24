@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root 'check#new'
-  get 'check' => 'check#new'
-  post 'check' => 'check#handcheck'
+  root 'porker#new'
+  get 'porker' => 'porker#new'
+  post 'porker' => 'porker#porkerhand'
   mount PorkerApi::API => '/'
 end
