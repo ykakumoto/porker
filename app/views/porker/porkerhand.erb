@@ -2,6 +2,10 @@
     <h2>Check a Porker Hand</h2>
     <input name="hand" type="text" value="<%= params[:hand] %>">
     <input type="submit" value="Check!">
-    <h3><%= "入力されたカード：#{params[:hand].split(" ")}" %></h3>
-    <h2><%= "手役：#{@hand}" %></h2>
+    <% if @hand == nil %>
+        <h3>5つのカード指定文字を半角スペース区切りで入力してください。（例："S1 H3 D9 C13 S11"）</h3>
+    <% else %>
+        <h3><%= "入力されたカード：#{params[:hand].split(" ")}" %></h3>
+        <h2><%= "手役：#{@hand}" %></h2>
+    <% end %>
 <% end %>
